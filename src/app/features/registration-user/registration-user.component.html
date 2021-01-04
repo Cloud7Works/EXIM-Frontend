@@ -1,0 +1,62 @@
+
+    <div class="form-row">                
+        <registration-step class="col-lg-5" [step]="step"></registration-step>
+         <div class="card card-register-user col-lg-7">
+            <div class="col-lg-12">
+                <h3><p class="sub-section-title">Step 2. Register a User</p></h3>
+                <p>Please provide some additional details to set up the user account. 
+                    Information collected here will only be used in our On-line Transaction Processing System. 
+                    For more information about our data collection policies, see the <span class="exim-policy">EXIM Privacy Policy</span>.</p>
+
+                <p>All fields are required unless indicated. </p>                
+                <div class="card card-form form-group col-lg-12 flex-fill" >
+                    <form [formGroup]="form" class="form-content align-self-center col-lg-8" >                    
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-first-name">First Name</label>
+                            <input type="text" formControlName="firstName"
+                            class="form-input form-control" 
+                            id="input-first-name" />
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-last-name">Last Name</label>
+                            <input type="text" formControlName="lastName"
+                                class="form-input form-control" 
+                                id="input-last-name" />            
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-title-address">Title</label>
+                            <input type="text" formControlName="title"
+                                class="form-input form-control" 
+                                id="input-title-address" />                                
+                        </div>
+
+                        <div class="form-group col-lg-8 flex-fill">
+                            <label htmlFor="input-phone-number">Phone Number</label>
+                            <input type="text" formControlName="phoneNumber"
+                                class="form-input form-control" 
+                                id="input-phone-number" />                                
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-email-address">Email Address</label>
+                            <input type="email" formControlName="email"
+                                class="form-input form-control" 
+                                id="input-email-address" />                                
+                        </div>                
+                   
+                    </form>
+
+                </div>
+              
+                <div class="form-row d-flex justify-content-between pb-2">
+                    <button class="btn btn-secondary w-100 col-sm-3 col-md-3 col-lg-4" (click)="nav(Step1)">{{back}}</button>
+                    <button class="btn btn-primary  w-100 col-sm-3 col-md-3 col-lg-4" (click)="nav(Step3)" [disabled]="form.invalid">{{next}}</button>
+                </div>
+        
+            </div>                        
+        </div>
+
+    </div>
+       

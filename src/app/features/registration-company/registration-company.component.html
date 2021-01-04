@@ -1,0 +1,108 @@
+
+
+    <div class="form-row">                
+        <registration-step class="col-lg-5" [step]="step"></registration-step>
+         <form [formGroup]="form" 
+                id="company-form" 
+                (ngSubmit)="next()"
+                class="card card-register-company col-lg-7">
+            <div class="col-lg-12">
+                <h3><p class="sub-section-title">Step 1. Register a Company</p></h3>
+                <p>Please provide some additional details to set up the user account. 
+                    Information collected here will only be used in our On-line Transaction Processing System. 
+                    For more information about our data collection policies, see the 
+                    <span class="exim-policy">EXIM Privacy Policy</span>.</p>
+
+                <p>All fields are required unless indicated. </p>                
+                <div class="card card-form form-group col-lg-12 flex-fill" >
+                    <div class="form-content align-self-center col-lg-8" >
+
+                    
+                    <div class="form-group col-lg-12 flex-fill">
+                        <label htmlFor="option-country">Country</label>
+                        <select formControlName="country" id="option-country" class="form-control">
+                            <option selected></option>
+                            <option>Philippines</option>                               
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-12 flex-fill">
+                        <label htmlFor="input-company-name">Company Legal Name</label>
+                        <input type="text" formControlName="companyName"
+                            class="form-input form-control" 
+                            id="input-company-name" />            
+                    </div>
+
+                    <div class="form-group col-lg-12 flex-fill">
+                        <label htmlFor="input-street-address">Street Address</label>
+                        <input type="text" formControlName="addressLine1"
+                            class="form-input form-control" 
+                            id="input-street-address" />                                
+                    </div>
+
+                    <div class="form-group col-lg-12 flex-fill">
+                        <label htmlFor="input-street-address2">Address 2(Optional)</label>
+                        <input type="text" formControlName="addressLine2"
+                            class="form-input form-control" 
+                            id="input-street-address2" />                                
+                    </div>
+
+                    <div class="form-group col-lg-8 flex-fill">
+                        <label htmlFor="input-city">City</label>
+                        <input type="text" formControlName="city"
+                            class="form-input form-control" 
+                            id="input-city" />                                
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <div class="form-group col-lg-8 flex-fill">
+                            <label htmlFor="option-state">State</label>
+                            <select formControlName="state" id="option-state" class="form-control">
+                                <option selected></option>
+                                <option>Philippines</option>                               
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-4 flex-fill">
+                            <label htmlFor="input-zip-code">Zip Code</label>
+                            <input type="text" formControlName="zipCode"
+                                class="form-input form-control" 
+                                id="input-zip-code" />                                
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <div class="form-group col-lg-8 flex-fill">
+                            <label htmlFor="input-duns-number">DUNS Number
+                                <span><i class="fa fa-exclamation-circle"></i></span>
+                            </label>                            
+                            <input type="text" formControlName="dunsNumber"
+                                class="form-input form-control" 
+                                id="input-duns-number" />                                
+                        </div>                                            
+                    </div>
+
+                    <div class="d-flex flex-row">                     
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="option-naics-code">Primary NAICS Code
+                                <span><i class="fa fa-exclamation-circle"></i></span>
+                            </label>
+                            <select formControlName="naicsCode" id="option-naics-code" class="form-control">
+                                <option selected></option>
+                                <option>12345</option>                               
+                            </select>
+                        </div>                      
+                    </div>
+                   
+                </div>
+
+                </div>
+                <div class="card card-form form-group col-lg-12 flex-fill" >
+                     <button type="submit" class="btn btn-primary
+                                    align-self-end w-100 col-sm-3 col-md-3 col-lg-4" form="company-form"
+                                     [disabled]="form.invalid">Next</button>
+                </div>    
+            </div>                        
+        </form>
+
+    </div>
+       

@@ -1,0 +1,24 @@
+<div class="App d-flex flex-column h-100">
+  <nav class="app-header navbar navbar-light justify-content-between">
+    <span class="navbar-logo">
+      <img src="../assets/images/exim.png" alt="logo"/>
+    </span>    
+    <form class="form-inline">      
+      <button class="btn btn-link my-2 my-sm-0">Exim.gov</button>
+    </form>
+  </nav>
+  <section class="container-fluid flex-grow-1">
+    <div class="form-row">                                              
+      <span *ngFor="let s of sizes" class="{{s.css + ' ' + (prefix + s.id) }}" style="z-index: -1;position: absolute; top: 0;">{{s.name}}</span>
+      <div class="w-100">
+        <router-outlet></router-outlet>
+      </div>
+      
+    </div>    
+ </section>    
+ <footer class="container-fluid app-footer">
+  <p>Privacy Policy</p>
+</footer>
+
+
+</div>

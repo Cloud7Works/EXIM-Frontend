@@ -1,0 +1,100 @@
+
+    <div class="form-row">                
+        <registration-step class="col-lg-5" [step]="step"></registration-step>
+         <div class="card card-register-user col-lg-7">
+            <div class="col-lg-12">
+                <h3><p class="sub-section-title">Step 3. Create User Account</p></h3>
+                <p>Please provide some additional details to set up the user account. 
+                    Information collected here will only be used in our On-line Transaction Processing System. 
+                    For more information about our data collection policies, see the <span class="exim-policy">EXIM Privacy Policy</span>.</p>
+
+                <p>All fields are required unless indicated. </p>                
+                <div class="card card-form form-group col-lg-12 flex-fill" >
+                    <form [formGroup]="form" class="form-content align-self-center col-lg-8" >
+                        <div class="form-group col-lg-12 flex-fill">
+                            <h4><p>User ID</p></h4>
+                            <p>User ID can only contain characters from the following four groups:</p>
+                            <ul>
+                                <li>English uppercase letters (A through Z)</li>
+                                <li>English lowercase letters (a through z)</li>
+                                <li>Numerals (0 through 9)</li>
+                                <li>Non-alphabetic characters: hyphen (-), period (.), and underscore (_)</li>
+                            </ul>
+                        </div>
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-user-id">User ID</label>
+                            <input type="text" formControlName="userId"
+                            class="form-input form-control" 
+                            id="input-first-name" />
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <h4><p>Password</p></h4>
+                            <p>Password should conform to the following guidelines:</p>
+                            <ul>
+                                <li>Must be at least 8 chracters long <span><i class="fa fa-check" *ngIf="control('password').value.length>=8"></i></span> </li>
+                                <li>Must contain at least 1 character from each of the following four character groups: 
+                                    <ul>
+                                        <li>English uppercase letters (A through Z)<i class="fa fa-check" *ngIf="!hasError('password','atleastOneUpperCaseRequired')"></i></li>
+                                        <li>English lowercase letters (a through z)<i class="fa fa-check" *ngIf="!hasError('password','atleastOneLowerCaseRequired')"></i></li>
+                                        <li>Numerals (0 through 9)<i class="fa fa-check" *ngIf="!hasError('password','atleastOneNumericRequired')"></i></li>
+                                        <li>Non-alphabetic characters<i class="fa fa-check" *ngIf="!hasError('password','atleastOneSpecialCharRequired')"></i></li>
+                                    </ul>
+                                </li>
+                                <li>Must not contain spaces<i class="fa fa-check" *ngIf="!control('password').value.includes(' ') && control('password').value.length>=1"></i></li>
+                                <li>Must not be the same as the User ID<i class="fa fa-check" *ngIf="control('password').value!==control('userId').value"></i></li>
+                            </ul>
+                        
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-password">Password</label>
+                            <input type="password" formControlName="password"
+                                class="form-input form-control" 
+                                id="input-password"  />            
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-re-password" (click)="log()">Re-enter Password</label>
+                            <input type="password" formControlName="rePassword"
+                                class="form-input form-control" 
+                                id="input-re-password"  />            
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <h4><p>Challenge Question</p></h4>
+                            <p>Select a challenge question and response. We will use this to verify your identity when you call the EXIM offices for your password.</p>
+                        </div>
+
+                        <div class="d-flex flex-row">                     
+                            <div class="form-group col-lg-12 flex-fill">
+                                <label htmlFor="option-challenge-question">Challenge Question</label>
+                                <select formControlName="challengeQuestion" id="option-challenge-question" class="form-control">
+                                    <option selected></option>
+                                    <option>12345</option>                               
+                                </select>
+                            </div>                      
+                        </div>
+
+                        <div class="form-group col-lg-12 flex-fill">
+                            <label htmlFor="input-challenge-response">Challenge Response</label>
+                            <input type="text" formControlName="challengeResponse"
+                                class="form-input form-control" 
+                                id="input-challenge-response"  />                                
+                        </div>
+                                    
+                    
+                    </form>
+
+                </div>
+              
+                <div class="form-row d-flex justify-content-between pb-2">
+                    <button class="btn btn-secondary w-100 col-sm-3 col-md-3 col-lg-4" (click)="nav(Step2)">{{back}}</button>
+                    <button class="btn btn-primary  w-100 col-sm-3 col-md-3 col-lg-4" (click)="submit()" [disabled]="form.invalid">Submit</button>
+                </div>
+        
+            </div>                        
+        </div>
+
+    </div>
+       

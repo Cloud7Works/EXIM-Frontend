@@ -1,0 +1,127 @@
+@import './assets/styles/scss/variables';
+/* You can add global styles to this file, and also import other style files */
+html, body, #root{
+    height: 100%!important;
+}
+
+.app-header{
+    height: 78px;
+    background-color: $appWhite!important;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.app-footer{        
+    height: 100%;
+    max-height: 80px!important;
+    background-color:#033572!important;    
+    p{
+        color:$appWhite;
+        font-size: 22px;
+        line-height: 25px;
+        text-decoration-line: underline;
+        padding: 15px;
+    }
+}
+
+*:not(i){
+    font-family: Arial, Helvetica;
+    font-style: normal;    
+    color: $appBlack;    
+  }
+
+a{
+    color:$appBlue!important;
+}
+
+// buttons
+.btn-primary{
+    background: $appAppleGreen!important;
+    border:2px solid $appAppleGreen!important;
+    font-weight: 700!important;
+}
+
+.btn-secondary{
+    background: $appWhite!important;
+    border:2px solid $appAppleGreen!important;
+    color:  $appAppleGreen!important;
+    font-weight: 700!important;
+}
+
+.btn-secondary:hover, .btn-secondary:focus{    
+    color:  $appAppleGreen!important;
+}
+
+.btn.btn-primary, .btn.btn-secondary{
+    border-radius: 4px;
+    font-size: 24px;
+    // max-width: 232px;
+    height: 66px;        
+    border-radius: 4px;
+}
+
+.btn.btn-secondary.disagree-button{
+    border:0!important;
+}
+// buttons
+
+// cards
+.card-login, 
+.card-register, 
+.card-policy, 
+.card-registration-check,
+.card-registration-step, 
+.card-register-company ,
+.card-register-user,
+.card-form{
+    margin-bottom: 30px!important;
+    border: 0!important;    
+}
+.card-registration-step{
+    .step-complete{
+        color: $appAppleGreen;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .card{
+        padding:20px 10px 19px 10px!important;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25)!important;   
+        .card-title {
+            p{
+                padding-top:20px;
+            }
+            button{
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+    .card.active{
+        border-left: 5px solid $appAppleGreen!important;
+    }
+}
+
+.card-register-user{
+    .fa-check{
+        color:$appAppleGreen;
+    }
+}
+
+
+// cards
+
+section{
+    margin-top:10px
+}
+.main-section-title{
+    font-weight: 700;
+    font-size: 30px;
+}
+.sub-section-title{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border:  2px solid $appRed;
+}    
