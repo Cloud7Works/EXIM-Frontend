@@ -36,6 +36,10 @@ export class AppComponent {
   constructor(private elementRef: ElementRef, private resizeSvc: ResizeService){}
   ngAfterViewInit() {
     this.onResize();
+    // this.resizeSvc.onResize$.subscribe(x => {
+    //   console.log(x);
+    // });    
+
   }
 
   private detectScreenSize() {
@@ -47,7 +51,7 @@ export class AppComponent {
 
       return isVisible;
     });
-    
+    console.log(currentSize);
     this.resizeSvc.onResize(currentSize.id);
   }
 }

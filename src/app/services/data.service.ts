@@ -1,10 +1,12 @@
+import { map, mergeMap } from 'rxjs/operators';
 import { APIBackendService } from './api-backend.service';
 import { Injectable } from "@angular/core";
 import { NotificationService } from './notification.service';
 import { Progress, Source, Status } from '../models/api.model';
 import { CompanyResponse } from '../models/company.response';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { hasLowerCaseValidatorFn, hasNumericValidatorFn, hasSpecialCharValidatorFn, hasUpperCaseValidatorFn, minLength as minLengthFn, passwordValidatorFn, userIdPasswordValidatorFn, whiteSpaceValidatorFn } from '../features/validators/form.validators';
+import { hasLowerCaseValidatorFn, hasNumericValidatorFn, hasSpecialCharValidatorFn, hasUpperCaseValidatorFn, passwordValidatorFn, userIdPasswordValidatorFn, whiteSpaceValidatorFn } from '../features/validators/form.validators';
+import { UserResponse } from '../models/user.response';
 const status = new Status(false,false,"",Progress.Idle);
 @Injectable({
     providedIn:'root'
@@ -65,9 +67,29 @@ export class DataService{
             source: Source.CompanyCreation,
             data : [],
             status :status
+        }, {
+            source: Source.UserCreation,
+            data : [],
+            status :status
+        }, {
+            source: Source.UserAccountCreation,
+            data : [],
+            status :status
+        }, {
+            source: Source.Coutries,
+            data : [],
+            status :status
+        }, {
+            source: Source.States,
+            data : [],
+            status :status
         }
     ];
 
+    private readonly _progress = this.notification.notify.pipe(map(d=>{
+        return { source : d.source , status : d.status, success: d.status.isCompleted && !d.status.isError}
+    }));
+ 
     retrieve(source : Source){
         return this.dataStore.find(f=>f.source==source);
     }
@@ -84,5 +106,25 @@ export class DataService{
         });
     }
 
+    submit(){  
+        this.backend.createCompany(this.companyForm.value).pipe(
+            mergeMap((data: CompanyResponse)=> this.backend.createUser(data.companyId,this.userForm.value)),
+            mergeMap((data : UserResponse)=>this.backend.createUserAccount(data.userId,this.userAccountForm.value))).subscribe();
+    }
+
+    invokeApi(source : Source){
+        switch (source) {           
+            case Source.Coutries:
+                this.backend.countries().subscribe();
+                break;          
+            default:
+                break;
+        }
+    }
+
+    get progress(){
+        return this._progress;
+    }
+  
     
 }

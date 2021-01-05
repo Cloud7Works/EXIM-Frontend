@@ -1,10 +1,11 @@
-import { Validators } from '@angular/forms';
+import { Status } from './../../models/api.model';
+import { Source } from 'src/app/models/api.model';
+import { Path } from './../../models/url.path';
 import { DataService } from './../../services/data.service';
 import { RegistrationStep } from './../../models/registration-steps';
 import { StepStatus } from './../../models/step-status';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { hasLowerCaseValidatorFn, hasNumericValidatorFn, hasSpecialCharValidatorFn, hasUpperCaseValidatorFn, passwordValidatorFn } from '../validators/form.validators';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
@@ -20,6 +21,7 @@ export class RegistrationUserAccountComponent implements OnInit {
   next = 'Next>';
   form = this.service.userAccountForm;
   ngOnInit(): void {
+    this.service.progress.subscribe(d=>this.navigate(d));
   }
 
   ngAfterViewInit(): void {
@@ -35,6 +37,12 @@ export class RegistrationUserAccountComponent implements OnInit {
   
   }
 
+  navigate(d : {source: Source,status: Status,success: boolean}){
+    if(d.source === Source.UserAccountCreation && d.success){      
+      this.router.navigate(['registration-confirmation']);
+    }
+  }
+
   control(name:string){      
     return this.service.userAccountForm.get(name);
   }
@@ -43,22 +51,17 @@ export class RegistrationUserAccountComponent implements OnInit {
     return this.control(ctrlName).getError(errorName);
   }
 
-  log(){
-    console.log(this.service.userAccountForm);
-    console.log(this.hasError('password','atleastOneLowerCaseRequired'))
-  }
-
   nav(step:string){
     this.step={name:step,status:true};    
-    this.router.navigate(['registration-user']);
+    this.router.navigate([Path.RegistrationUser]);
   }  
 
   get Step2(){
     return RegistrationStep.Step2;
   }
 
-  submit(){
-    this.router.navigate(['registration-confirmation']);
+  submit(){    
+    this.service.submit();
   }
 
 }

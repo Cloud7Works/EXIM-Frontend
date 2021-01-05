@@ -13,28 +13,34 @@
                     For more information about our data collection policies, see the 
                     <span class="exim-policy">EXIM Privacy Policy</span>.</p>
 
-                <p>All fields are required unless indicated. </p>                
+                <p>Asterisk(<span class="asterisk">*</span>) denotes required information. </p>                
+                <p>NAICS stands for North American Industry Classification System and is a 6-digit code that 
+                   allows EXIM to easily understand your business. This is required for US companies. 
+                   If you do not know your company's NAICS code, please use this 
+                   <span><button class="btn btn-link pl-0 pr-0">tool</button></span> (<b>NOTE: this is an external link and is not related to or maintained by EXIM Bank</b>) to identify the appropriate code.</p>
+                <p>A D&B DUNS Number will be required for application submission.</p>
                 <div class="card card-form form-group col-lg-12 flex-fill" >
                     <div class="form-content align-self-center col-lg-8" >
 
                     
                     <div class="form-group col-lg-12 flex-fill">
-                        <label htmlFor="option-country">Country</label>
+                        <label htmlFor="option-country">Country<span class="asterisk">*</span></label>
                         <select formControlName="country" id="option-country" class="form-control">
                             <option selected></option>
-                            <option>Philippines</option>                               
+                            <option *ngFor="let i of countries" [selected]="i.selected">{{i.name }}</option>
+                                                        
                         </select>
                     </div>
 
                     <div class="form-group col-lg-12 flex-fill">
-                        <label htmlFor="input-company-name">Company Legal Name</label>
+                        <label htmlFor="input-company-name">Company Legal Name<span class="asterisk">*</span></label>
                         <input type="text" formControlName="companyName"
                             class="form-input form-control" 
                             id="input-company-name" />            
                     </div>
 
                     <div class="form-group col-lg-12 flex-fill">
-                        <label htmlFor="input-street-address">Street Address</label>
+                        <label htmlFor="input-street-address">Street Address<span class="asterisk">*</span></label>
                         <input type="text" formControlName="addressLine1"
                             class="form-input form-control" 
                             id="input-street-address" />                                
@@ -48,22 +54,28 @@
                     </div>
 
                     <div class="form-group col-lg-8 flex-fill">
-                        <label htmlFor="input-city">City</label>
+                        <label htmlFor="input-city">City<span class="asterisk">*</span></label>
                         <input type="text" formControlName="city"
                             class="form-input form-control" 
                             id="input-city" />                                
                     </div>
 
                     <div class="d-flex flex-row">
-                        <div class="form-group col-lg-8 flex-fill">
-                            <label htmlFor="option-state">State</label>
+                        <!-- <div class="form-group col-lg-8 flex-fill">
+                            <label htmlFor="option-state">State<span class="asterisk">*</span></label>
                             <select formControlName="state" id="option-state" class="form-control">
-                                <option selected></option>
-                                <option>Philippines</option>                               
+                                <option selected></option>                                
+                                <option *ngFor="let i of states" [selected]="i.selected">{{i.name}}</option>                               
                             </select>
+                        </div> -->
+                        <div class="form-group col-lg-8 flex-fill">
+                            <label htmlFor="input-state">State<span class="asterisk">*</span></label>
+                            <input type="text" formControlName="state"
+                                class="form-input form-control" 
+                                id="input-state" />                                
                         </div>
                         <div class="form-group col-lg-4 flex-fill">
-                            <label htmlFor="input-zip-code">Zip Code</label>
+                            <label htmlFor="input-zip-code">Zip Code<span class="asterisk">*</span></label>
                             <input type="text" formControlName="zipCode"
                                 class="form-input form-control" 
                                 id="input-zip-code" />                                
@@ -74,6 +86,7 @@
                         <div class="form-group col-lg-8 flex-fill">
                             <label htmlFor="input-duns-number">DUNS Number
                                 <span><i class="fa fa-exclamation-circle"></i></span>
+                                <span class="asterisk">*</span>
                             </label>                            
                             <input type="text" formControlName="dunsNumber"
                                 class="form-input form-control" 
@@ -85,10 +98,14 @@
                         <div class="form-group col-lg-12 flex-fill">
                             <label htmlFor="option-naics-code">Primary NAICS Code
                                 <span><i class="fa fa-exclamation-circle"></i></span>
+                                <span class="asterisk">*</span>
                             </label>
                             <select formControlName="naicsCode" id="option-naics-code" class="form-control">
                                 <option selected></option>
-                                <option>12345</option>                               
+                                <option>541511</option>                               
+                                <option>541512</option>       
+                                <option>541513</option>       
+                                <option>541519</option>       
                             </select>
                         </div>                      
                     </div>

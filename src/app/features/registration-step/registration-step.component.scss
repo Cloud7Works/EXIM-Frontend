@@ -141,3 +141,25 @@ $base: 38px;
 			transform: scale(0.707) rotate(45deg);
 		}
 }
+
+// @media all and (max-width: 310px) {
+// 	.breadcrumb__desc {
+// 		display: none; 
+// 	}
+	
+// 	.breadcrumb {
+// 		height: $base;
+// 	}
+	
+// 	.breadcrumb div {
+// 		padding-left: $base / 1.5;
+// 	}
+	
+// 	.breadcrumb div:after {
+// 			content: "";
+// 			width: $base * 1;
+// 			height: $base * 1;
+// 			right: $base / 2 * -1;
+// 			transform: scale(0.707) rotate(45deg);
+// 		}
+// }

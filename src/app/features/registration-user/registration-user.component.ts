@@ -1,9 +1,9 @@
 import { DataService } from './../../services/data.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistrationStep } from './../../models/registration-steps';
 import { Router } from '@angular/router';
 import { StepStatus } from './../../models/step-status';
 import { Component, OnInit } from '@angular/core';
+import { Path } from '../../models/url.path';
 
 @Component({
   selector: 'register-user',
@@ -33,12 +33,11 @@ export class RegistrationUserComponent implements OnInit {
   }
   
   nav(step:string){
-    this.step={name:step,status:true};
-    this.service.userForm = this.form;    
+    this.step={name:step,status:true};    
     if(step==RegistrationStep.Step1){
-      this.router.navigate(['registration-company']);
+      this.router.navigate([Path.RegistrationCompany]);
     }else{
-      this.router.navigate(['registration-user-account']);
+      this.router.navigate([Path.RegistrationUserAccount]);
     }
     
   }  

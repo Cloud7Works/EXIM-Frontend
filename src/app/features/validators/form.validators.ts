@@ -71,7 +71,7 @@ export function minLength(len:number) : ValidatorFn{
 
 export function whiteSpaceValidatorFn() : ValidatorFn{
   return(control:AbstractControl):ValidationErrors | null =>{  
-    if((control.value as string).includes(' ')){
+    if((control.value as string)?.includes(' ')){
       return {'whiteSpaceNotAllowed':true};
     }
     return null;

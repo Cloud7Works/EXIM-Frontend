@@ -1,3 +1,4 @@
+import { Path } from './../../models/url.path';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,8 +13,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  nav(){
-    this.router.navigate(['/registration-privacy']);
+  isClick = false;
+  login(){
+    this.isClick=!this.isClick;
+  }
+  nav(){    
+    this.router.navigate([Path.RegistrationPrivacy]);
   }
 }

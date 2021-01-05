@@ -106,8 +106,6 @@ a{
         color:$appAppleGreen;
     }
 }
-
-
 // cards
 
 section{
@@ -125,3 +123,7 @@ section{
 .form-control.ng-touched.ng-invalid{
     border:  2px solid $appRed;
 }    
+
+.asterisk{
+    color: red;
+}

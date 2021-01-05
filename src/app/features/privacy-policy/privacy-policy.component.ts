@@ -1,3 +1,4 @@
+import { Path } from './../../models/url.path';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -15,10 +16,10 @@ export class PrivacyPolicyComponent implements OnInit {
 
 
   nav(agree?:boolean){
-    if(agree){      
-      this.router.navigate(['/registration-checkpoint']);
+    if(agree){            
+      this.router.navigate([Path.RegistrationCheckpoint]);
     }else{
-      this.router.navigate(['/home']);
+      this.router.navigate([Path.Home]);
     }    
   }
 

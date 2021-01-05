@@ -12,14 +12,14 @@
                 <div class="card card-form form-group col-lg-12 flex-fill" >
                     <form [formGroup]="form" class="form-content align-self-center col-lg-8" >                    
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-first-name">First Name</label>
+                            <label htmlFor="input-first-name">First Name<span class="asterisk">*</span></label>
                             <input type="text" formControlName="firstName"
                             class="form-input form-control" 
                             id="input-first-name" />
                         </div>
 
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-last-name">Last Name</label>
+                            <label htmlFor="input-last-name">Last Name<span class="asterisk">*</span></label>
                             <input type="text" formControlName="lastName"
                                 class="form-input form-control" 
                                 id="input-last-name" />            
@@ -33,14 +33,14 @@
                         </div>
 
                         <div class="form-group col-lg-8 flex-fill">
-                            <label htmlFor="input-phone-number">Phone Number</label>
+                            <label htmlFor="input-phone-number">Phone Number<span class="asterisk">*</span></label>
                             <input type="text" formControlName="phoneNumber"
                                 class="form-input form-control" 
                                 id="input-phone-number" />                                
                         </div>
 
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-email-address">Email Address</label>
+                            <label htmlFor="input-email-address">Email Address<span class="asterisk">*</span></label>
                             <input type="email" formControlName="email"
                                 class="form-input form-control" 
                                 id="input-email-address" />                                

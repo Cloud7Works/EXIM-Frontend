@@ -50,10 +50,12 @@ import { CanProceedRegistration } from './services/registration.guard';
       useFactory:(config:AppConfiguration)=>()=>config.initialiaze(),
       deps:[AppConfiguration],
       multi:true
-    },{
-      provide:APIBackendService, useClass:APIStaticService,
-      deps:[HttpClient,NotificationService]
-    }],
+    }
+    // ,{
+    //   provide:APIBackendService, useClass:APIStaticService,
+    //   deps:[HttpClient,NotificationService]
+    // }
+  ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

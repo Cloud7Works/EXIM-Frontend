@@ -2,9 +2,70 @@
     <h3><p class="main-section-title">Confirmation</p></h3>
     <div class="form-group col-lg-8 p-0 checkpoint-question mb-0 flex-fill">
       <p>Your registration has been submitted successfully. Please check your email for a confirmation message from us. </p>             
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis gravida pellentesque. Phasellus facilisis sed odio at tristique. In vitae ex blandit, auctor erat id, semper ligula. Etiam interdum finibus laoreet. Vivamus ante diam, consectetur id mi ac, dapibus varius lectus. </p>             
+      <p>Below is the summary of your registration:</p>                    
     </div>           
    
+    <ul class="col-lg-6">
+      <li>
+        <h4>Company Details</h4>
+        <ul>
+          <li>
+            Country : <span><b>{{companyValue.country}}</b></span> 
+          </li>
+          <li>
+            Company Legal Name : <span><b>{{companyValue.companyName}}</b></span> 
+          </li>
+          <li>
+            Street Address : <span><b>{{companyValue.addressLine1}}</b></span> 
+          </li>
+          <li *ngIf="companyValue.addressLine2!==''">
+            Address 2(Optional) : <span><b>{{companyValue.addressLine2}}</b></span> 
+          </li>
+          <li>
+            City : <span><b>{{companyValue.city}}</b></span> 
+          </li>
+          <li>
+            State : <span><b>{{companyValue.state}}</b></span> 
+          </li>
+          <li>
+            Zip Code : <span><b>{{companyValue.zipCode}}</b></span> 
+          </li>
+          <li>
+            DUNS Number : <span><b>{{companyValue.dunsNumber}}</b></span> 
+          </li>
+          <li>
+            Primary NAICS Code : <span><b>{{companyValue.naicsCode}}</b></span> 
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="col-lg-6">
+      <li>
+        <h4>User Details</h4>
+        <ul>
+          <li>
+            User Id : <span><b>{{userAccountValue.userId}}</b></span> 
+          </li>
+          <li>
+            First Name : <span><b>{{userValue.firstName}}</b></span> 
+          </li>
+          <li>
+            Last Name : <span><b>{{userValue.lastName}}</b></span> 
+          </li>
+          <li *ngIf="userValue.title!==''">
+            Title : <span><b>{{userValue.title}}</b></span> 
+          </li>
+          <li>
+            Phone Number : <span><b>{{userValue.phoneNumber}}</b></span> 
+          </li>
+          <li>
+            Email Address : <span><b>{{userValue.email}}</b></span> 
+          </li>
+         
+        </ul>
+      </li>
+    </ul>
    <div class="col-lg-12 flex-fill" >
      <div class="row form-buttons">
        <button type="button" class="btn btn-primary col-lg-4 yes-button mr-2" (click)="login()">Return to Login</button>                       

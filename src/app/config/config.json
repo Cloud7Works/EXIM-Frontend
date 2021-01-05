@@ -1,5 +1,16 @@
 {
-    "host":"",
-    "endPoints":{        
+    "host":"https://394eivgi06.execute-api.us-east-1.amazonaws.com/test",
+    "endPoints":{    
+        "company":{
+            "POST":"/companies",
+            "PATCH":"/companies/REPLACE_VALUE",
+            "GET":"/companies/REPLACE_VALUE"
+        },"user":{
+            "POST":"/companies/REPLACE_VALUE/users",            
+            "PATCH":"/companies/REPLACE_COMPANY_ID/users/REPLACE_USER_ID",
+            "GET":"/companies/REPLACE_COMPANY_ID/users/REPLACE_USER_ID"
+        },"userAccount":{
+            "POST":"/users/REPLACE_VALUE/userAccount"
+        }
     }
 }

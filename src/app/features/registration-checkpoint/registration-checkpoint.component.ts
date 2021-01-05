@@ -1,3 +1,4 @@
+import { Path } from './../../models/url.path';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -14,10 +15,10 @@ export class RegistrationCheckpointComponent implements OnInit {
   }
 
   nav(hasExim?:boolean){
-    if(hasExim){
-      this.router.navigate(['/home']);
-    }else{
-      this.router.navigate(['/registration-company']);
+    if(hasExim){      
+      this.router.navigate([Path.Home]);
+    }else{      
+      this.router.navigate([Path.RegistrationCompany]);
     }    
   }
 

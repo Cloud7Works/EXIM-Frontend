@@ -3,7 +3,8 @@ import { DataService } from './../../services/data.service';
 import { Router } from '@angular/router';
 import { StepStatus } from './../../models/step-status';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Source, Status } from '../../models/api.model';
+import { Path } from '../../models/url.path';
 
 @Component({
   selector: 'app-registration-company',
@@ -15,16 +16,32 @@ export class RegistrationCompanyComponent implements OnInit {
   constructor(private router : Router, private service: DataService) { }  
 
   step : StepStatus = {name:RegistrationStep.Step1,status:true};
-  ngOnInit(): void {       
+  ngOnInit(): void {    
+    this.form.get('country').valueChanges.subscribe(data=>{
+      this.countries.map(m=>{
+        m.selected=false;
+        if(m.name==data)m.selected=true;
+      });
+    });
+
+    if(this.countries.length==0) this.service.invokeApi(Source.Coutries);           
   }
 
-  next(){
-    this.step={name:RegistrationStep.Step2,status:true};
-    this.router.navigate(['registration-user']);
-    this.service.companyForm = this.form;    
-    // this.service.backend.createCompany(null).subscribe(data=>console.log(data));
+  get countries(){
+    return this.service.retrieve(Source.Coutries).data;
   }
 
+  get states(){
+    return this.service.retrieve(Source.States).data;
+  }
 
+  get country(){
+    return this.form.get('country').value;
+  }
+
+  next(){      
+    this.step={name:RegistrationStep.Step2,status:true};    
+    this.router.navigate([Path.RegistrationUser]);     
+  }
 
 }

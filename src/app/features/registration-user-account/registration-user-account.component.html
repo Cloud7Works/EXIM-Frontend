@@ -5,12 +5,12 @@
             <div class="col-lg-12">
                 <h3><p class="sub-section-title">Step 3. Create User Account</p></h3>
                 <p>Please provide some additional details to set up the user account. 
-                    Information collected here will only be used in our On-line Transaction Processing System. 
-                    For more information about our data collection policies, see the <span class="exim-policy">EXIM Privacy Policy</span>.</p>
+                    Please note that the information collected here will only be used in our On-line Transaction Processing System. 
+                    For more information about our data collection policies, see the <span class="exim-policy"><button class="btn btn-link pl-0 pr-0">EXIM Privacy Policy</button></span>.</p>
 
                 <p>All fields are required unless indicated. </p>                
                 <div class="card card-form form-group col-lg-12 flex-fill" >
-                    <form [formGroup]="form" class="form-content align-self-center col-lg-8" >
+                    <form [formGroup]="form" (ngSubmit)="submit()" class="form-content align-self-center col-lg-8" id="form-user-account" >
                         <div class="form-group col-lg-12 flex-fill">
                             <h4><p>User ID</p></h4>
                             <p>User ID can only contain characters from the following four groups:</p>
@@ -22,7 +22,7 @@
                             </ul>
                         </div>
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-user-id">User ID</label>
+                            <label htmlFor="input-user-id">User ID<span class="asterisk">*</span></label>
                             <input type="text" formControlName="userId"
                             class="form-input form-control" 
                             id="input-first-name" />
@@ -48,14 +48,14 @@
                         </div>
 
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-password">Password</label>
+                            <label htmlFor="input-password">Password<span class="asterisk">*</span></label>
                             <input type="password" formControlName="password"
                                 class="form-input form-control" 
                                 id="input-password"  />            
                         </div>
 
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-re-password" (click)="log()">Re-enter Password</label>
+                            <label htmlFor="input-re-password">Re-enter Password<span class="asterisk">*</span><span class="asterisk">*</span></label>
                             <input type="password" formControlName="rePassword"
                                 class="form-input form-control" 
                                 id="input-re-password"  />            
@@ -68,16 +68,17 @@
 
                         <div class="d-flex flex-row">                     
                             <div class="form-group col-lg-12 flex-fill">
-                                <label htmlFor="option-challenge-question">Challenge Question</label>
+                                <label htmlFor="option-challenge-question">Challenge Question<span class="asterisk">*</span></label>
                                 <select formControlName="challengeQuestion" id="option-challenge-question" class="form-control">
                                     <option selected></option>
-                                    <option>12345</option>                               
+                                    <option>What's your first pet name?</option>                               
+                                    <option>What's your first car?</option> 
                                 </select>
                             </div>                      
                         </div>
 
                         <div class="form-group col-lg-12 flex-fill">
-                            <label htmlFor="input-challenge-response">Challenge Response</label>
+                            <label htmlFor="input-challenge-response">Challenge Response<span class="asterisk">*</span></label>
                             <input type="text" formControlName="challengeResponse"
                                 class="form-input form-control" 
                                 id="input-challenge-response"  />                                
@@ -90,7 +91,7 @@
               
                 <div class="form-row d-flex justify-content-between pb-2">
                     <button class="btn btn-secondary w-100 col-sm-3 col-md-3 col-lg-4" (click)="nav(Step2)">{{back}}</button>
-                    <button class="btn btn-primary  w-100 col-sm-3 col-md-3 col-lg-4" (click)="submit()" [disabled]="form.invalid">Submit</button>
+                    <button type="submit" form="form-user-account" class="btn btn-primary  w-100 col-sm-3 col-md-3 col-lg-4" [disabled]="form.invalid">Submit</button>
                 </div>
         
             </div>                        
